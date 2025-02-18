@@ -1,0 +1,24 @@
+{
+    "O": {
+        "Chinese": "氧",
+        "Valence": [
+            "-2",
+            "-1",
+            "0",
+            "+1",
+            "+2"
+        ],
+        "bay": true,
+        "Discovered": true
+    },
+    "H": {
+        "Chinese": "氢",
+        "Valence": [
+            "-1",
+            "0",
+            "+1"
+        ],
+        "bay": true,
+        "Discovered": true
+    }
+}

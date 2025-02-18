@@ -1,0 +1,11 @@
+{
+    "H2O": {
+        "Chinese": "水",
+        "make": {
+            "H": 2,
+            "O": 1
+        },
+        "bay": true,
+        "Discovered": true
+    }
+}
