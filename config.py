@@ -19,12 +19,14 @@ def sys_exit(message = None):
 
 # 基本全局参
 if True:
+    player = json.load("player")
     device = json.load("device")
     element = json.load("element")
     compound = json.load("compound")
     condition = json.load("condition")
 
     if (
+        type(player).__name__!= "dict" or
         type(device).__name__ != "dict" or
         type(element).__name__ != "dict" or
         type(compound).__name__ != "dict" or
@@ -76,6 +78,15 @@ if True:
             "bay": 价格\\False,
             "Discovered": True
         }
+    }
+    """
+    player: dict[str, int | dict]
+    """
+    {
+    "money": 100,
+    "device": {},
+    "element": {},
+    "compound": {},
     }
     """
 
