@@ -8,7 +8,7 @@
             "+1",
             "+2"
         ],
-        "bay": true,
+        "buy": true,
         "Discovered": true
     },
     "H": {
@@ -18,7 +18,7 @@
             "0",
             "+1"
         ],
-        "bay": true,
+        "buy": true,
         "Discovered": true
     }
 }

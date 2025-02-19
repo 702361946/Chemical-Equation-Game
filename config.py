@@ -40,7 +40,7 @@ if True:
     """
     {
         "仪器名": {
-            "bay": 价格\\False
+            "buy": 价格\\False
         }
     }
     """
@@ -60,7 +60,7 @@ if True:
         "元素符号": {
             'Chinese': "中文名",
             "Valence": [化合价],
-            "bay": 价格\\False,
+            "buy": 价格\\False,
             "Discovered": True
         }
     }
@@ -75,7 +75,7 @@ if True:
                 "H": 2,
                 "O": 1
             },
-            "bay": 价格\\False,
+            "buy": 价格\\False,
             "Discovered": True
         }
     }

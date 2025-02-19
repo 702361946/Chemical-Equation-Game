@@ -19,7 +19,7 @@ def shop():
             case "0":
                 shop_mode = "元素"
                 for _i in element.keys():
-                    if element[_i]["bay"] is not False:
+                    if element[_i]["buy"] is not False:
                         shop_all_key.append(_i)
 
                 if len(shop_all_key) == 0:
@@ -28,7 +28,7 @@ def shop():
             case "1":
                 shop_mode = "化合物"
                 for _i in compound.keys():
-                    if compound[_i]["bay"] is not False:
+                    if compound[_i]["buy"] is not False:
                         shop_all_key.append(_i)
 
                 if len(shop_all_key) == 0:
@@ -37,7 +37,7 @@ def shop():
             case "2":
                 shop_mode = "仪器"
                 for _i in device.keys():
-                    if device[_i]["bay"] is not False:
+                    if device[_i]["buy"] is not False:
                         shop_all_key.append(_i)
 
                 if len(shop_all_key) == 0:
@@ -62,19 +62,19 @@ def shop():
                     if _user_input in range(len(shop_all_key)):
                         match shop_mode:
                             case "元素":
-                                shop_bay_money = element[shop_all_key[_user_input]]["bay"]
+                                shop_buy_money = element[shop_all_key[_user_input]]["buy"]
                                 shop_mode = "element"
                             case "化合物":
-                                shop_bay_money = compound[shop_all_key[_user_input]]["bay"]
+                                shop_buy_money = compound[shop_all_key[_user_input]]["buy"]
                                 shop_mode = "compound"
                             case "仪器":
-                                shop_bay_money = device[shop_all_key[_user_input]]["bay"]
+                                shop_buy_money = device[shop_all_key[_user_input]]["buy"]
                                 shop_mode = "device"
                             case _:
                                 logging.error(f"shop_mode value error:{shop_mode}")
                                 sys_exit("请发送日志文件至702361946@qq.com")
-                        if player["money"] >= shop_bay_money:
-                            player["money"] -= shop_bay_money
+                        if player["money"] >= shop_buy_money:
+                            player["money"] -= shop_buy_money
                             if shop_all_key[_user_input] not in player[shop_mode].keys():
                                 player[shop_mode][shop_all_key[_user_input]] = {
                                     "value": 0
@@ -86,7 +86,7 @@ def shop():
                             logging.info(f"shop\\{shop_all_key[_user_input]}+1")
                             break
                         else:
-                            print(f"余额不足，需要{shop_bay_money}")
+                            print(f"余额不足，需要{shop_buy_money}")
                             shop_mode = "none"
                             continue
 
