@@ -1,5 +1,7 @@
 #  Copyright (c) 2025.
 #  702361946@qq.com(https://github.com/702361946)
+import copy
+import re
 
 from config import *
 
@@ -7,6 +9,7 @@ if True:
     # 修改root logger的名称
     root_logger.name = 'game'
     logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
 
 def shop():
     logging.info("shop")
@@ -44,6 +47,7 @@ def shop():
                     print("没有可购买的仪器")
                     shop_mode = "none"
             case "9":
+                json.dump(player, "player")
                 return None
             case _:
                 print("未知输入")
@@ -97,6 +101,120 @@ def shop():
                 except ValueError:
                     print("请输入整数")
                     continue
+
+
+def equation():
+    logging.info("equation")
+
+    equation_all_key = {
+        "reactants": {},
+        "product": {},
+        "all": {}
+    }
+
+    _user_input = input("请输入化学方程式\n格式要求如下\na+b+c=d\n加号及等号间无空格\n")
+    logging.debug(f"user_input:{_user_input}")
+    _user_input = _user_input.split("=")
+    if len(_user_input) != 2:
+        print("请输入正确的化学方程式")
+        return False
+
+    equation_mode = "reactants"
+
+    for _i in _user_input:
+        for __i in _i.split("+"):
+            num = re.match(r"^\d+", __i)
+            key = __i[num.end():] if num is not None else __i
+            num = int(num.group()) if num else 1
+            equation_all_key[equation_mode][key] = num
+
+        equation_mode = "product"
+
+    for _i in equation_all_key["reactants"].keys():
+        if _i not in element.keys() and _i not in compound.keys():
+            print(f'元素"{_i}"不存在\n如果真实存在请联系702361946@qq.com')
+            equation_mode = "return"
+
+    if equation_mode == "return":
+        return False
+
+    for _i in equation_all_key["product"].keys():
+        if _i in compound.keys():
+            for __i in compound[_i]["make"].keys():
+                if __i not in equation_all_key["all"].keys():
+                    equation_all_key["all"][__i] = 0
+                equation_all_key["all"][__i] += (
+                        compound[_i]["make"][__i] * equation_all_key["product"][_i]
+                )
+        else:
+            if _i not in equation_all_key["all"].keys():
+                equation_all_key["all"][_i] = 0
+            equation_all_key["all"][_i] += equation_all_key["product"][_i]
+
+    equation_all_reactants = copy.deepcopy(equation_all_key["all"])
+
+    for _i in equation_all_key["reactants"].keys():
+        if _i in compound.keys():
+            for __i in compound[_i]["make"].keys():
+                if __i not in equation_all_reactants.keys():
+                    equation_all_reactants[__i] = 0
+                equation_all_reactants[__i] -= (
+                    compound[_i]["make"][__i] *
+                    equation_all_key["reactants"][_i]
+                )
+        else:
+            if _i not in equation_all_reactants.keys():
+                equation_all_reactants[_i] = 0
+            equation_all_reactants[_i] -= equation_all_key["reactants"][_i]
+
+    logging.debug(f"equation_all_key\n{equation_all_key}")
+
+    for _i in equation_all_reactants.keys():
+        if equation_all_reactants[_i] != 0:
+            print(f"方程式未配平\n{_i}:{equation_all_reactants[_i]}")
+            equation_mode = "return"
+        elif (
+                equation_all_key["all"][_i] >
+                player["compound"].get(_i, {"value": 0})["value"] and
+                equation_all_key["all"][_i] >
+                player["element"].get(_i, {"value": 0})["value"]
+        ):
+            print(f"当前持有的化合物不足以支撑反应:{_i}")
+            equation_mode = "return"
+
+    if equation_mode == "return":
+        return False
+
+    for _i in equation_all_key["all"].keys():
+        if _i in compound.keys():
+            if _i not in player["compound"].keys():
+                player["compound"][_i] = {
+                    "value": 0
+                }
+            player["compound"][_i]["value"] -= equation_all_key["all"][_i]
+        else:
+            if _i not in player["element"].keys():
+                player["element"][_i] = {
+                    "value": 0
+                }
+            player["element"][_i]["value"] -= equation_all_key["all"][_i]
+
+    for _i in equation_all_key["product"].keys():
+        if _i in compound.keys():
+            if _i not in player["compound"].keys():
+                player["compound"][_i] = {
+                    "value": 0
+                }
+            player["compound"][_i]["value"] += equation_all_key["product"][_i]
+        else:
+            if _i not in player["element"].keys():
+                player["element"][_i] = {
+                    "value": 0
+                }
+            player["element"][_i]["value"] += equation_all_key["product"][_i]
+
+    json.dump(player, "player")
+    return True
 
 
 logging.info('game ok and exit')
