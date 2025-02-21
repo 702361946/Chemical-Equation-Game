@@ -85,9 +85,9 @@ def shop():
                                 }
                             player[shop_mode][shop_all_key[_user_input]]["value"] += 1
                             print(f"购买成功，剩余{player['money']}")
+                            logging.info(f"shop\\{shop_all_key[_user_input]}+1")
                             shop_all_key = []
                             shop_mode = "none"
-                            logging.info(f"shop\\{shop_all_key[_user_input]}+1")
                             break
                         else:
                             print(f"余额不足，需要{shop_buy_money}")
@@ -327,6 +327,30 @@ def order_page():
 
         else:
             print("未知内容")
+
+
+def main():
+    logging.info("main")
+    while True:
+        print("主菜单")
+        _user_input = input("0.商店\n1.合成\n2.订单\n9.退出")
+        match _user_input:
+            case "0":
+                shop()
+            case "1":
+                equation()
+            case "2":
+                order_page()
+            case "9":
+                json.dump(player, "player")
+                logging.info("user in main page exit")
+                sys_exit()
+            case _:
+                print("未知输入")
+
+
+if __name__ == '__main__':
+    main()
 
 logging.info('game ok and exit')
 logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
