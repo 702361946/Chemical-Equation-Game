@@ -1,7 +1,9 @@
 #  Copyright (c) 2025.
 #  702361946@qq.com(https://github.com/702361946)
 
+import random
 import sys
+from uuid import uuid4
 
 from dependency import *
 
@@ -33,6 +35,45 @@ if True:
         type(condition).__name__ != "dict"
     ):
         sys_exit("请检查文件完整性")
+
+    order = json.load("order")
+    if type(order).__name__!= "dict":
+        print("无法获取正在进行的订单")
+        order = {}
+
+
+def add_order():
+    _id = uuid4().hex
+    get = {} # 需求
+    money = 0
+
+    all_key = {**element, **compound}
+
+    size = min(5, len(all_key))
+
+    all_items = random.sample(
+        list(all_key.keys()),
+        random.randint(1, size)
+    )
+
+    for _i in all_items:
+        if _i not in get.keys():
+            get[_i] = {
+                "get": random.randint(1, 100),
+                "user_get": 0,
+            }
+            money += int(
+                get[_i]["get"] *
+                all_key[_i]["buy"] *
+                random.uniform(1.1, 2)
+            )
+
+    order[_id] = {
+        "id": _id,
+        "get": get,
+        "money": money,
+    }
+
 
 # 类型提示(如无必要勿删改)
 if True:

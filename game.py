@@ -217,5 +217,116 @@ def equation():
     return True
 
 
+def order_page():
+    logging.info("order")
+
+    while len(order) < 5:
+        add_order()
+    json.dump(order, "order")
+
+    _t = 0
+    order_all_list = list(order.keys())
+    for _i in order_all_list:
+        print(f"id:{_t}")
+        for __i in order[_i]["get"].keys():
+            print(f"需要:{__i}x{order[_i]['get'][__i]['get']}")
+            print(f"已交付:{__i}x{order[_i]['get'][__i]['user_get']}")
+        print(f"完成可得报酬:{order[_i]['money']}\n")
+        _t += 1
+
+    while True:
+        _user_input = input("请输入订单编号\nexit 退出订单页")
+        if _user_input == "exit":
+            return None
+        elif (
+            _user_input.isdigit() and
+            int(_user_input) in range(len(order_all_list))
+        ):
+            order_id = order_all_list[int(_user_input)]
+            break
+        else:
+            print("未知内容")
+
+    order_all_value = {}
+    for _i in order[order_id]["get"].keys():
+        if (
+            order[order_id]["get"][_i]["user_get"] >=
+            order[order_id]["get"][_i]["get"]
+        ):
+            continue
+        order_all_value[_i] = {
+            "end": (
+                order[order_id]["get"][_i]['get'] -
+                order[order_id]["get"][_i]['user_get']
+            ),
+        }
+
+    for _i in order_all_value.keys():
+        print(f"{_i}还差{order_all_value[_i]['end']}")
+
+    while True:
+        _user_input = input("请输入需要交付的元素\nexit 退出订单页")
+        if _user_input == "exit":
+            return None
+        elif _user_input in order_all_value.keys():
+            if _user_input in player["element"].keys():
+                _mode = "element"
+            elif _user_input in player["compound"].keys():
+                _mode = "compound"
+            else:
+                print(f"仓库里暂无存货:{_user_input}")
+                continue
+
+            _get = _user_input
+
+            print(f"仓库内还有{player[_mode][_get]['value']}个")
+            _user_input = input("请输入需要交付的数量")
+            if _user_input.isdigit():
+                _user_input = int(_user_input)
+            else:
+                print("请输入整数")
+                continue
+            if _user_input > player[_mode][_get]["value"]:
+                print("数量不足")
+                get_bool = False
+            elif _user_input >= order_all_value[_get]["end"]:
+                order[order_id]["get"][_get]["user_get"] += (
+                    order_all_value[_get]["end"]
+                )
+                player[_mode][_get]["value"] -= order_all_value[_get]["end"]
+                order_all_value[_get]["end"] = 0
+                get_bool = True
+            else:
+                order[order_id]["get"][_get]["user_get"] += _user_input
+                order_all_value[_get]["end"] -= _user_input
+                player[_mode][_get]["value"] -= _user_input
+                get_bool = True
+            if get_bool:
+                print("成功提交")
+
+                del_order = True
+                _return = False
+                for _i in order[order_id]["get"].keys():
+                    if (
+                        order[order_id]["get"][_i]["user_get"] <
+                        order[order_id]["get"][_i]["get"]
+                    ):
+                        del_order = False
+                        break
+                if del_order:
+                    print("订单完成")
+                    player["money"] += order[order_id]["money"]
+                    print(f"获得报酬:{order[order_id]['money']}")
+                    del order[order_id]
+                    _return = True
+                    json.dump(player, "player")
+
+                json.dump(order, "order")
+                if _return:
+                    return True
+
+        else:
+            print("未知内容")
+
 logging.info('game ok and exit')
 logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
