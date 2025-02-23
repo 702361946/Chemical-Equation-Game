@@ -1,24 +1,710 @@
 {
-    "O": {
-        "Chinese": "氧",
-        "Valence": [
-            "-2",
-            "-1",
-            "0",
-            "+1",
-            "+2"
-        ],
-        "buy": true,
-        "Discovered": true
-    },
     "H": {
         "Chinese": "氢",
-        "Valence": [
-            "-1",
-            "0",
-            "+1"
-        ],
-        "buy": true,
-        "Discovered": true
+        "id": 1,
+        "Discovered": true,
+        "buy": 0
+    },
+    "He": {
+        "Chinese": "氦",
+        "id": 2,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Li": {
+        "Chinese": "锂",
+        "id": 3,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Be": {
+        "Chinese": "铍",
+        "id": 4,
+        "Discovered": true,
+        "buy": 0
+    },
+    "B": {
+        "Chinese": "硼",
+        "id": 5,
+        "Discovered": true,
+        "buy": 0
+    },
+    "C": {
+        "Chinese": "碳",
+        "id": 6,
+        "Discovered": true,
+        "buy": 0
+    },
+    "N": {
+        "Chinese": "氮",
+        "id": 7,
+        "Discovered": true,
+        "buy": 0
+    },
+    "O": {
+        "Chinese": "氧",
+        "id": 8,
+        "Discovered": true,
+        "buy": 0
+    },
+    "F": {
+        "Chinese": "氟",
+        "id": 9,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ne": {
+        "Chinese": "氖",
+        "id": 10,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Na": {
+        "Chinese": "钠",
+        "id": 11,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Mg": {
+        "Chinese": "镁",
+        "id": 12,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Al": {
+        "Chinese": "铝",
+        "id": 13,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Si": {
+        "Chinese": "硅",
+        "id": 14,
+        "Discovered": true,
+        "buy": 0
+    },
+    "P": {
+        "Chinese": "磷",
+        "id": 15,
+        "Discovered": true,
+        "buy": 0
+    },
+    "S": {
+        "Chinese": "硫",
+        "id": 16,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Cl": {
+        "Chinese": "氯",
+        "id": 17,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ar": {
+        "Chinese": "氩",
+        "id": 18,
+        "Discovered": true,
+        "buy": 0
+    },
+    "K": {
+        "Chinese": "钾",
+        "id": 19,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ca": {
+        "Chinese": "钙",
+        "id": 20,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Sc": {
+        "Chinese": "钪",
+        "id": 21,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ti": {
+        "Chinese": "钛",
+        "id": 22,
+        "Discovered": true,
+        "buy": 0
+    },
+    "V": {
+        "Chinese": "钒",
+        "id": 23,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Cr": {
+        "Chinese": "铬",
+        "id": 24,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Mn": {
+        "Chinese": "锰",
+        "id": 25,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Fe": {
+        "Chinese": "铁",
+        "id": 26,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Co": {
+        "Chinese": "钴",
+        "id": 27,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ni": {
+        "Chinese": "镍",
+        "id": 28,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Cu": {
+        "Chinese": "铜",
+        "id": 29,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Zn": {
+        "Chinese": "锌",
+        "id": 30,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ga": {
+        "Chinese": "镓",
+        "id": 31,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ge": {
+        "Chinese": "锗",
+        "id": 32,
+        "Discovered": true,
+        "buy": 0
+    },
+    "As": {
+        "Chinese": "砷",
+        "id": 33,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Se": {
+        "Chinese": "硒",
+        "id": 34,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Br": {
+        "Chinese": "溴",
+        "id": 35,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Kr": {
+        "Chinese": "氪",
+        "id": 36,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Rb": {
+        "Chinese": "铷",
+        "id": 37,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Sr": {
+        "Chinese": "锶",
+        "id": 38,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Y": {
+        "Chinese": "钇",
+        "id": 39,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Zr": {
+        "Chinese": "锆",
+        "id": 40,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Nb": {
+        "Chinese": "铌",
+        "id": 41,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Mo": {
+        "Chinese": "钼",
+        "id": 42,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Tc": {
+        "Chinese": "锝",
+        "id": 43,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Ru": {
+        "Chinese": "钌",
+        "id": 44,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Rh": {
+        "Chinese": "铑",
+        "id": 45,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pd": {
+        "Chinese": "钯",
+        "id": 46,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ag": {
+        "Chinese": "银",
+        "id": 47,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Cd": {
+        "Chinese": "镉",
+        "id": 48,
+        "Discovered": true,
+        "buy": 0
+    },
+    "In": {
+        "Chinese": "铟",
+        "id": 49,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Sn": {
+        "Chinese": "锡",
+        "id": 50,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Sb": {
+        "Chinese": "锑",
+        "id": 51,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Te": {
+        "Chinese": "碲",
+        "id": 52,
+        "Discovered": true,
+        "buy": 0
+    },
+    "I": {
+        "Chinese": "碘",
+        "id": 53,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Xe": {
+        "Chinese": "氙",
+        "id": 54,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Cs": {
+        "Chinese": "铯",
+        "id": 55,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ba": {
+        "Chinese": "钡",
+        "id": 56,
+        "Discovered": true,
+        "buy": 0
+    },
+    "La": {
+        "Chinese": "镧",
+        "id": 57,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ce": {
+        "Chinese": "铈",
+        "id": 58,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pr": {
+        "Chinese": "镨",
+        "id": 59,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Nd": {
+        "Chinese": "钕",
+        "id": 60,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pm": {
+        "Chinese": "钷",
+        "id": 61,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Sm": {
+        "Chinese": "钐",
+        "id": 62,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Eu": {
+        "Chinese": "铕",
+        "id": 63,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Gd": {
+        "Chinese": "钆",
+        "id": 64,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Tb": {
+        "Chinese": "铽",
+        "id": 65,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Dy": {
+        "Chinese": "镝",
+        "id": 66,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ho": {
+        "Chinese": "钬",
+        "id": 67,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Er": {
+        "Chinese": "铒",
+        "id": 68,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Tm": {
+        "Chinese": "铥",
+        "id": 69,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Yb": {
+        "Chinese": "镱",
+        "id": 70,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Lu": {
+        "Chinese": "镥",
+        "id": 71,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Hf": {
+        "Chinese": "铪",
+        "id": 72,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ta": {
+        "Chinese": "钽",
+        "id": 73,
+        "Discovered": true,
+        "buy": 0
+    },
+    "W": {
+        "Chinese": "钨",
+        "id": 74,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Re": {
+        "Chinese": "铼",
+        "id": 75,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Os": {
+        "Chinese": "锇",
+        "id": 76,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Ir": {
+        "Chinese": "铱",
+        "id": 77,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pt": {
+        "Chinese": "铂",
+        "id": 78,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Au": {
+        "Chinese": "金",
+        "id": 79,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Hg": {
+        "Chinese": "汞",
+        "id": 80,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Tl": {
+        "Chinese": "铊",
+        "id": 81,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pb": {
+        "Chinese": "铅",
+        "id": 82,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Bi": {
+        "Chinese": "铋",
+        "id": 83,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Po": {
+        "Chinese": "钋",
+        "id": 84,
+        "Discovered": false,
+        "buy": 0
+    },
+    "At": {
+        "Chinese": "砹",
+        "id": 85,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Rn": {
+        "Chinese": "氡",
+        "id": 86,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Fr": {
+        "Chinese": "钫",
+        "id": 87,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Ra": {
+        "Chinese": "镭",
+        "id": 88,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Ac": {
+        "Chinese": "锕",
+        "id": 89,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Th": {
+        "Chinese": "钍",
+        "id": 90,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Pa": {
+        "Chinese": "镤",
+        "id": 91,
+        "Discovered": false,
+        "buy": 0
+    },
+    "U": {
+        "Chinese": "铀",
+        "id": 92,
+        "Discovered": true,
+        "buy": 0
+    },
+    "Np": {
+        "Chinese": "镎",
+        "id": 93,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Pu": {
+        "Chinese": "钚",
+        "id": 94,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Am": {
+        "Chinese": "镅",
+        "id": 95,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Cm": {
+        "Chinese": "锔",
+        "id": 96,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Bk": {
+        "Chinese": "锫",
+        "id": 97,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Cf": {
+        "Chinese": "锎",
+        "id": 98,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Es": {
+        "Chinese": "锿",
+        "id": 99,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Fm": {
+        "Chinese": "镄",
+        "id": 100,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Md": {
+        "Chinese": "钔",
+        "id": 101,
+        "Discovered": false,
+        "buy": 0
+    },
+    "No": {
+        "Chinese": "锘",
+        "id": 102,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Lr": {
+        "Chinese": "铹",
+        "id": 103,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Rf": {
+        "Chinese": "鑪",
+        "id": 104,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Db": {
+        "Chinese": "𬭊",
+        "id": 105,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Sg": {
+        "Chinese": "𬭳",
+        "id": 106,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Bh": {
+        "Chinese": "𬭛",
+        "id": 107,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Hs": {
+        "Chinese": "𬭶",
+        "id": 108,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Mt": {
+        "Chinese": "鿏",
+        "id": 109,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Ds": {
+        "Chinese": "𫟼",
+        "id": 110,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Rg": {
+        "Chinese": "𬬭",
+        "id": 111,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Cn": {
+        "Chinese": "鿔",
+        "id": 112,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Nh": {
+        "Chinese": "鿭",
+        "id": 113,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Fl": {
+        "Chinese": "𫓧",
+        "id": 114,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Mc": {
+        "Chinese": "镆",
+        "id": 115,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Lv": {
+        "Chinese": "鉝",
+        "id": 116,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Ts": {
+        "Chinese": "鿬",
+        "id": 117,
+        "Discovered": false,
+        "buy": 0
+    },
+    "Og": {
+        "Chinese": "鿫",
+        "id": 118,
+        "Discovered": false,
+        "buy": 0
     }
 }
