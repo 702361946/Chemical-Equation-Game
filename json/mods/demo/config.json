@@ -1,0 +1,14 @@
+{
+    "mod_name": "这是个示例",
+    "version": "v0.1",
+    "author": "702361946@qq.com",
+    "open": false,
+    "description": "mod描述(可用readme替代)",
+    "file_all": {
+        "compound": false,
+        "condistion": false,
+        "device": false,
+        "element": false,
+        "README": true
+    }
+}
