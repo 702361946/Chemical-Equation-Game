@@ -1,6 +1,6 @@
 #  Copyright (c) 2025.
 #  702361946@qq.com(https://github.com/702361946)
-
+import os
 import random
 import sys
 from uuid import uuid4
@@ -38,8 +38,80 @@ if True:
 
     order = json.load("order")
     if type(order).__name__!= "dict":
+        logging.info("读取order出现问题")
         print("无法获取正在进行的订单")
         order = {}
+
+    # mods
+    if player["open_mod"] is True:
+        logging.info("mod开启")
+
+        mods_dict = {}
+        mods_path = ".\\json\\mods"
+
+        if os.path.exists(mods_path):
+            for mod_name in os.listdir(mods_path):
+                mod_dir = os.path.join(mods_path, mod_name)
+                if os.path.isdir(mod_dir):
+                    _t = json.load("config", ["mods", mod_name])
+                    if type(_t).__name__!= "dict":
+                        print(f"获取mod失败:{mod_dir}")
+                        logging.info(f"获取mod失败:{mod_dir}")
+                        continue
+                    logging.info(f"获取mod成功:{mod_dir}")
+                    print(f"成功找到mod:{mod_name}")
+                    if "open" in _t.keys() and "file_all" in _t.keys():
+                        if _t["open"] is True:
+                            mods_dict[mod_name] = _t
+                            print(f"此mod已开启:{mod_name}")
+                            logging.info(f"此mod已开启:{mod_name}")
+                        else:
+                            logging.info(f"此mod已关闭:{mod_name}")
+
+            for mod_name in mods_dict.keys():
+                _t = mods_dict[mod_name]
+                if type(_t["file_all"]).__name__!= "dict":
+                    logging.info(f"此mod配置错误:{mod_name}\n{_t}")
+                    print(f"此mod配置错误:{mod_name}")
+                    continue
+                for mode in ["compound", "condition", "device", "element"]:
+                    if _t["file_all"].get(mode, False) is not True:
+                        continue
+
+                    __t = json.load(mode, ["mods", mod_name])
+                    if type(__t).__name__!= "dict":
+                        logging.info(f"此mod_{mode}文件错误:{mod_name}\n{__t}")
+                        continue
+
+                    for _i in __t.keys():
+                        if type(__t[_i]).__name__!= "dict":
+                            logging.info(f"not dict:{mode}\n{mod_name}\n{__t[_i]}")
+                            continue
+
+                        match mode:
+                            case "compound":
+                                compound[_i] = __t[_i]
+                            case "condition":
+                                condition[_i] = __t[_i]
+                            case "device":
+                                if (
+                                    _i not in device.keys() or
+                                    "buy" in __t[_i].keys()
+                                ):
+                                    device[_i] = __t[_i]
+                            case "element":
+                                if (
+                                    "buy" in __t[_i].keys() and
+                                    __t[_i]["buy"] is not None
+                                ):
+                                    element[_i]["buy"] = __t[_i]["buy"]
+                            case _:
+                                logging.error(f"no mode:{mode}")
+
+                print(f"此mod加载已完成:{mod_name}")
+        else:
+            logging.info("mods文件夹不存在")
+            print("mods文件夹不存在")
 
 
 def add_order():

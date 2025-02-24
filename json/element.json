@@ -255,7 +255,7 @@
         "Chinese": "锝",
         "id": 43,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Ru": {
         "Chinese": "钌",
@@ -363,7 +363,7 @@
         "Chinese": "钷",
         "id": 61,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Sm": {
         "Chinese": "钐",
@@ -501,37 +501,37 @@
         "Chinese": "钋",
         "id": 84,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "At": {
         "Chinese": "砹",
         "id": 85,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Rn": {
         "Chinese": "氡",
         "id": 86,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Fr": {
         "Chinese": "钫",
         "id": 87,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Ra": {
         "Chinese": "镭",
         "id": 88,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Ac": {
         "Chinese": "锕",
         "id": 89,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Th": {
         "Chinese": "钍",
@@ -543,7 +543,7 @@
         "Chinese": "镤",
         "id": 91,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "U": {
         "Chinese": "铀",
@@ -555,156 +555,156 @@
         "Chinese": "镎",
         "id": 93,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Pu": {
         "Chinese": "钚",
         "id": 94,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Am": {
         "Chinese": "镅",
         "id": 95,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Cm": {
         "Chinese": "锔",
         "id": 96,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Bk": {
         "Chinese": "锫",
         "id": 97,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Cf": {
         "Chinese": "锎",
         "id": 98,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Es": {
         "Chinese": "锿",
         "id": 99,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Fm": {
         "Chinese": "镄",
         "id": 100,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Md": {
         "Chinese": "钔",
         "id": 101,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "No": {
         "Chinese": "锘",
         "id": 102,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Lr": {
         "Chinese": "铹",
         "id": 103,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Rf": {
         "Chinese": "鑪",
         "id": 104,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Db": {
         "Chinese": "𬭊",
         "id": 105,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Sg": {
         "Chinese": "𬭳",
         "id": 106,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Bh": {
         "Chinese": "𬭛",
         "id": 107,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Hs": {
         "Chinese": "𬭶",
         "id": 108,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Mt": {
         "Chinese": "鿏",
         "id": 109,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Ds": {
         "Chinese": "𫟼",
         "id": 110,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Rg": {
         "Chinese": "𬬭",
         "id": 111,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Cn": {
         "Chinese": "鿔",
         "id": 112,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Nh": {
         "Chinese": "鿭",
         "id": 113,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Fl": {
         "Chinese": "𫓧",
         "id": 114,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Mc": {
         "Chinese": "镆",
         "id": 115,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Lv": {
         "Chinese": "鉝",
         "id": 116,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Ts": {
         "Chinese": "鿬",
         "id": 117,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     },
     "Og": {
         "Chinese": "鿫",
         "id": 118,
         "Discovered": false,
-        "buy": 0
+        "buy": false
     }
 }

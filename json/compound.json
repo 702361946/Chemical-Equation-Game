@@ -5,7 +5,7 @@
             "H": 2,
             "O": 1
         },
-        "buy": true,
+        "buy": 0,
         "Discovered": true
     }
 }
