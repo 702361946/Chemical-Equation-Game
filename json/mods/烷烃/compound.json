@@ -1,0 +1,362 @@
+{
+    "CH4": {
+        "Chinese": "甲烷",
+        "make": {
+            "C": 1,
+            "H": 4
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C2H6": {
+        "Chinese": "乙烷",
+        "make": {
+            "C": 2,
+            "H": 6
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C3H8": {
+        "Chinese": "丙烷",
+        "make": {
+            "C": 3,
+            "H": 8
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C4H10": {
+        "Chinese": "丁烷",
+        "make": {
+            "C": 4,
+            "H": 10
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C5H12": {
+        "Chinese": "戊烷",
+        "make": {
+            "C": 5,
+            "H": 12
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C6H14": {
+        "Chinese": "己烷",
+        "make": {
+            "C": 6,
+            "H": 14
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C7H16": {
+        "Chinese": "庚烷",
+        "make": {
+            "C": 7,
+            "H": 16
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C8H18": {
+        "Chinese": "辛烷",
+        "make": {
+            "C": 8,
+            "H": 18
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C9H20": {
+        "Chinese": "壬烷",
+        "make": {
+            "C": 9,
+            "H": 20
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C10H22": {
+        "Chinese": "癸烷",
+        "make": {
+            "C": 10,
+            "H": 22
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C11H24": {
+        "Chinese": "十一烷",
+        "make": {
+            "C": 11,
+            "H": 24
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C12H26": {
+        "Chinese": "十二烷",
+        "make": {
+            "C": 12,
+            "H": 26
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C13H28": {
+        "Chinese": "十三烷",
+        "make": {
+            "C": 13,
+            "H": 28
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C14H30": {
+        "Chinese": "十四烷",
+        "make": {
+            "C": 14,
+            "H": 30
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C15H32": {
+        "Chinese": "十五烷",
+        "make": {
+            "C": 15,
+            "H": 32
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C16H34": {
+        "Chinese": "十六烷",
+        "make": {
+            "C": 16,
+            "H": 34
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C17H36": {
+        "Chinese": "十七烷",
+        "make": {
+            "C": 17,
+            "H": 36
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C18H38": {
+        "Chinese": "十八烷",
+        "make": {
+            "C": 18,
+            "H": 38
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C19H40": {
+        "Chinese": "十九烷",
+        "make": {
+            "C": 19,
+            "H": 40
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C20H42": {
+        "Chinese": "二十烷",
+        "make": {
+            "C": 20,
+            "H": 42
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C21H44": {
+        "Chinese": "二十一烷",
+        "make": {
+            "C": 21,
+            "H": 44
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C22H46": {
+        "Chinese": "二十二烷",
+        "make": {
+            "C": 22,
+            "H": 46
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C23H48": {
+        "Chinese": "二十三烷",
+        "make": {
+            "C": 23,
+            "H": 48
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C24H50": {
+        "Chinese": "二十四烷",
+        "make": {
+            "C": 24,
+            "H": 50
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C25H52": {
+        "Chinese": "二十五烷",
+        "make": {
+            "C": 25,
+            "H": 52
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C26H54": {
+        "Chinese": "二十六烷",
+        "make": {
+            "C": 26,
+            "H": 54
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C27H56": {
+        "Chinese": "二十七烷",
+        "make": {
+            "C": 27,
+            "H": 56
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C28H58": {
+        "Chinese": "二十八烷",
+        "make": {
+            "C": 28,
+            "H": 58
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C29H60": {
+        "Chinese": "二十九烷",
+        "make": {
+            "C": 29,
+            "H": 60
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C30H62": {
+        "Chinese": "三十烷",
+        "make": {
+            "C": 30,
+            "H": 62
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C31H64": {
+        "Chinese": "三十一烷",
+        "make": {
+            "C": 31,
+            "H": 64
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C32H66": {
+        "Chinese": "三十二烷",
+        "make": {
+            "C": 32,
+            "H": 66
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C33H68": {
+        "Chinese": "三十三烷",
+        "make": {
+            "C": 33,
+            "H": 68
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C34H70": {
+        "Chinese": "三十四烷",
+        "make": {
+            "C": 34,
+            "H": 70
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C35H72": {
+        "Chinese": "三十五烷",
+        "make": {
+            "C": 35,
+            "H": 72
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C36H74": {
+        "Chinese": "三十六烷",
+        "make": {
+            "C": 36,
+            "H": 74
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C37H76": {
+        "Chinese": "三十七烷",
+        "make": {
+            "C": 37,
+            "H": 76
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C38H78": {
+        "Chinese": "三十八烷",
+        "make": {
+            "C": 38,
+            "H": 78
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C39H80": {
+        "Chinese": "三十九烷",
+        "make": {
+            "C": 39,
+            "H": 80
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "C40H82": {
+        "Chinese": "四十烷",
+        "make": {
+            "C": 40,
+            "H": 82
+        },
+        "buy": 0,
+        "Discovered": true
+    }
+}

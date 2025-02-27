@@ -1,0 +1,14 @@
+{
+    "mod_name": "烷烃",
+    "version": "v0.1",
+    "author": "702361946@qq.com",
+    "open": true,
+    "description": "包含大部分烷烃",
+    "file_all": {
+        "compound": true,
+        "condistion": false,
+        "device": false,
+        "element": false,
+        "README": true
+    }
+}
