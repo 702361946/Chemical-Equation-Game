@@ -113,6 +113,15 @@ if True:
             logging.info("mods文件夹不存在")
             print("mods文件夹不存在")
 
+    game_values = {
+        "player": player,
+        "device": device,
+        "element": element,
+        "compound": compound,
+        "condition": condition,
+        "order": order
+    }
+
 
 def add_order():
     _id = uuid4().hex

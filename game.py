@@ -11,96 +11,167 @@ if True:
     logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 
-def shop():
+def shop() -> None:
     logging.info("shop")
-    shop_all_key = []
     shop_mode = "none"
-    while True:
-        print("商店")
-        _user_input = input("0.购买元素\n1.购买化合物\n2.购买仪器\n9.返回")
-        match _user_input:
-            case "0":
-                shop_mode = "元素"
-                for _i in element.keys():
-                    if element[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    shop_all_mode = {"none", "return", "element", "compound", "device"}
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的元素")
-                    shop_mode = "none"
-            case "1":
-                shop_mode = "化合物"
-                for _i in compound.keys():
-                    if compound[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    print("商店")
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的化合物")
-                    shop_mode = "none"
-            case "2":
-                shop_mode = "仪器"
-                for _i in device.keys():
-                    if device[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    # 状态判断
+    def mode_if() -> bool:
+        """
+        当状态未知报错并退出
+        当状态为return时返回False
+        其他均返回True
+        :return:
+        """
+        if shop_mode not in shop_all_mode:
+            logging.error(f"Unknown shop_mode status:{shop_mode}")
+            sys_exit(f"ERROR:未知状态\\{shop_mode}")
+            return False
+        elif shop_mode == "return":
+            logging.info("return shop")
+            return False
+        else:
+            return True
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的仪器")
-                    shop_mode = "none"
-            case "9":
-                json.dump(player, "player")
-                return None
-            case _:
-                print("未知输入")
+    # 购买询问
+    def buy_input() -> tuple[str, list]:
+        input_dict = {
+            "0": {
+                "describe": "购买元素",
+                "transform": "element"
+            },
+            "1": {
+                "describe": "购买化合物",
+                "transform": "compound"
+            },
+            "2": {
+                "describe": "购买仪器",
+                "transform": "device"
+            },
+            "9": {
+                "describe": "退出商店",
+                "transform": "return"
+            },
+        }
+        _shop_all_key = []
 
-        if shop_mode != "none":
-            print(f"可购买的{shop_mode}有")
+        for __i in input_dict.keys():
+            print(f"{__i}.{input_dict[__i]['describe']}")
+
+        while True:
+            __t = input_dict.get(input("输入编号"), {"transform": None})["transform"]
+            if __t in shop_all_mode and __t in game_values.keys():
+                logging.info(f"user_input transform:{__t}")
+
+                for __i in game_values[__t]:
+                    if game_values[__t][__i]["buy"] is not False:
+                        _shop_all_key.append(__i)
+
+                if not _shop_all_key:
+                    print("此选项内无可购买内容")
+                    logging.info("shop_all_key None value")
+                else:
+                    return __t, _shop_all_key
+            elif __t == "return":
+                return __t, _shop_all_key
+            else:
+                print("无效输入")
+
+    # 购买获取
+    def buy_get(shop_all_key) -> str | None:
+        get = True
+        while_print = True
+        while True:
+            if len(shop_all_key) > 50 and get is True:
+                print(
+                    "可购买物过多\n"
+                    "请输入包含的关键字以搜索内容\n"
+                    "越准确越好\n"
+                    "输入exit可退出搜索并进行下一步"
+                )
+                keyword = input("请输入:")
+                if keyword == "exit":
+                    get = False
+                    continue
+                filtered_items = [item for item in shop_all_key if keyword in item]
+
+                if not filtered_items:
+                    print("未找到包含该关键字的物品")
+                    continue
+                elif len(filtered_items) > 50:
+                    print("搜索结果过多,请提供更为准确的关键字")
+                    continue
+                else:
+                    shop_all_key = filtered_items
+
             _t = 0
-            while _t < len(shop_all_key):
+            while _t < len(shop_all_key) and while_print is True:
                 print(f"{_t}.{shop_all_key[_t]}")
                 _t += 1
+            while_print = False
 
-            while True:
-                _user_input = input("请输入编号")
+            __t = input("请输入编号\n输入exit退出购买")
+            if __t == "exit":
+                return None
+            try:
+                __t = int(__t)
+                if 0 <= __t < len(shop_all_key):
+                    return shop_all_key[__t]
+                else:
+                    print("编号超出范围")
+            except ValueError:
+                print("请输入有效的数字编号")
+
+    # 购买(我也不知道这玩意到底会不会返回None,反正报提示了)
+    def buy() -> str | None:
+        print(f"当前单价:{game_values[shop_mode][shop_get]['buy']}")
+        while True:
+            __t = input("输入购买数量(直接敲回车等同于输入1)\n输入no取消购买\n输入exit退出购买")
+            if __t == "no":
+                return "none"
+            elif __t == "exit":
+                return "return"
+            elif __t == "":
+                __t = 1
+            else:
                 try:
-                    _user_input = int(_user_input)
-                    if _user_input in range(len(shop_all_key)):
-                        match shop_mode:
-                            case "元素":
-                                shop_buy_money = element[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "element"
-                            case "化合物":
-                                shop_buy_money = compound[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "compound"
-                            case "仪器":
-                                shop_buy_money = device[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "device"
-                            case _:
-                                logging.error(f"shop_mode value error:{shop_mode}")
-                                sys_exit("请发送日志文件至702361946@qq.com")
-                        if player["money"] >= shop_buy_money:
-                            player["money"] -= shop_buy_money
-                            if shop_all_key[_user_input] not in player[shop_mode].keys():
-                                player[shop_mode][shop_all_key[_user_input]] = {
-                                    "value": 0
-                                }
-                            player[shop_mode][shop_all_key[_user_input]]["value"] += 1
-                            print(f"购买成功，剩余{player['money']}")
-                            logging.info(f"shop\\{shop_all_key[_user_input]}+1")
-                            shop_all_key = []
-                            shop_mode = "none"
-                            break
-                        else:
-                            print(f"余额不足，需要{shop_buy_money}")
-                            shop_mode = "none"
-                            continue
-
-                    else:
-                        print("请输入正确的编号")
+                    __t = int(__t)
+                    if __t <= 0:
+                        print("请输入大于0的数字")
                         continue
-
                 except ValueError:
-                    print("请输入整数")
+                    print("请输入有效的数字")
                     continue
+
+            if game_values[shop_mode][shop_get]["buy"] * __t > player["money"]:
+                print("余额不足")
+                continue
+            else:
+                player["money"] -= game_values[shop_mode][shop_get]["buy"] * __t
+                if shop_get not in player[shop_mode].keys():
+                    player[shop_mode][shop_get] = {"value": 0}
+                player[shop_mode][shop_get]["value"] += __t
+                print(f"成功购买{__t}个{shop_get}")
+                logging.info(f"buy:{shop_get}\\int:{__t}")
+                return "none"
+
+    while True:
+        shop_mode, shop_all_key = buy_input()
+        shop_all_key: list[str]
+
+        if not mode_if():
+            return None
+
+        shop_get = buy_get(shop_all_key)
+        if shop_get is None:
+            return None
+
+        shop_mode = buy()
+        if not mode_if():
+            return None
 
 
 def equation():
