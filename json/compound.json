@@ -97,5 +97,156 @@
         },
         "buy": 0,
         "Discovered": true
+    },
+    "MgO": {
+        "Chinese": "氧化镁",
+        "make": {
+            "Mg": 1,
+            "O": 1
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "Fe3O4": {
+        "Chinese": "四氧化三铁",
+        "make": {
+            "Fe": 3,
+            "O": 4
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "CuO": {
+        "Chinese": "氧化铜",
+        "make": {
+            "Cu": 1,
+            "O": 1
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "Al2O3": {
+        "Chinese": "氧化铝",
+        "make": {
+            "Al": 2,
+            "O": 3
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "P2O5": {
+        "Chinese": "五氧化二磷",
+        "make": {
+            "P": 2,
+            "O": 5
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "SO2": {
+        "Chinese": "二氧化硫",
+        "make": {
+            "S": 1,
+            "O": 2
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "CO": {
+        "Chinese": "一氧化碳",
+        "make": {
+            "C": 1,
+            "O": 1
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "CH4": {
+        "Chinese": "甲烷",
+        "make": {
+            "C": 1,
+            "H": 4
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "Cu2(OH)2CO3": {
+        "Chinese": "碱式碳酸铜",
+        "make": {
+            "Cu": 2,
+            "O": 5,
+            "C": 1,
+            "H": 2
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "NH4HCO3": {
+        "Chinese": "碳酸氢铵",
+        "make": {
+            "N": 1,
+            "H": 5,
+            "C": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "H2O2": {
+        "Chinese": "过氧化氢",
+        "make": {
+            "H": 2,
+            "O": 2
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "KMnO4": {
+        "Chinese": "高锰酸钾",
+        "make": {
+            "K": 1,
+            "Mn": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "K2MnO4": {
+        "Chinese": "锰酸钾",
+        "make": {
+            "K": 2,
+            "Mn": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "MnO2": {
+        "Chinese": "二氧化锰",
+        "make": {
+            "Mn": 1,
+            "O": 2
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "KClO3": {
+        "Chinese": "氯酸钾",
+        "make": {
+            "K": 1,
+            "Cl": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "KCl": {
+        "Chinese": "氯化钾",
+        "make": {
+            "K": 1,
+            "Cl": 1
+        },
+        "buy": 0,
+        "Discovered": true
     }
 }
