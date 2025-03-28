@@ -1,0 +1,109 @@
+{
+    "ZnSO4": {
+        "Chinese": "硫酸锌",
+        "make": {
+            "Zn": 1,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "FeSO4": {
+        "Chinese": "硫酸铁",
+        "make": {
+            "Fe": 1,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "MgSO4": {
+        "Chinese": "硫酸镁",
+        "make": {
+            "Mg": 1,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "H2SO4": {
+        "Chinese": "稀硫酸",
+        "make": {
+            "H": 2,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Al2(SO4)3": {
+        "Chinese": "硫酸铝",
+        "make": {
+            "Al": 2,
+            "S": 3,
+            "O": 12
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "ZnCl2": {
+        "Chinese": "氯化锌",
+        "make": {
+            "Zn": 1,
+            "Cl": 2
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "MgCl2": {
+        "Chinese": "氯化镁",
+        "make": {
+            "Mg": 1,
+            "Cl": 2
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "AlCl3": {
+        "Chinese": "氯化铝",
+        "make": {
+            "Al": 1,
+            "Cl": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "CuSO4": {
+        "Chinese": "硫酸铜",
+        "make": {
+            "Cu": 1,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "AgNO3": {
+        "Chinese": "硝酸银",
+        "make": {
+            "Ag": 1,
+            "N": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Cu(NO3)2": {
+        "Chinese": "硝酸铜",
+        "make": {
+            "Cu": 1,
+            "N": 2,
+            "O": 6
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    }
+}
