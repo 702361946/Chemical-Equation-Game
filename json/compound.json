@@ -248,5 +248,34 @@
         },
         "buy": 0,
         "Discovered": true
+    },
+    "H2CO3": {
+        "Chinese": "碳酸",
+        "make": {
+            "H": 2,
+            "C": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "CaCO3": {
+        "Chinese": "石灰石",
+        "make": {
+            "Ca": 1,
+            "C": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "Discovered": true
+    },
+    "Fe2O3": {
+        "Chinese": "氧化铁",
+        "make": {
+            "Fe": 2,
+            "O": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
     }
 }
