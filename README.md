@@ -15,6 +15,7 @@
 ## 依赖
 
     dependency下的所有内容(虽然确实有点少)
+    chemax(https://github.com/HisAtri/chemax)
 
 # 项目架构
 
