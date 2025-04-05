@@ -63,7 +63,6 @@ if True:
                     if "open" in _t.keys() and "file_all" in _t.keys():
                         if _t["open"] is True:
                             mods_dict[mod_name] = _t
-                            print(f"此mod已开启:{mod_name}")
                             logging.info(f"此mod已开启:{mod_name}")
                         else:
                             logging.info(f"此mod已关闭:{mod_name}")
@@ -109,6 +108,7 @@ if True:
                                 logging.error(f"no mode:{mode}")
 
                 print(f"此mod加载已完成:{mod_name}")
+                logging.info(f"此mod加载已完成:{mod_name}")
         else:
             logging.info("mods文件夹不存在")
             print("mods文件夹不存在")
