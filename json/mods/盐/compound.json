@@ -105,5 +105,81 @@
         },
         "buy": 0,
         "DiDiscovered": true
+    },
+    "FeCl3": {
+        "Chinese": "氯化铁",
+        "make": {
+            "Fe": 1,
+            "Cl": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Fe2(SO4)3": {
+        "Chinese": "硫酸铁",
+        "make": {
+            "Fe": 2,
+            "S": 3,
+            "O": 12
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "CuCl2": {
+        "Chinese": "氯化铜",
+        "make": {
+            "Cu": 1,
+            "Cl": 2
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Na2CO3": {
+        "Chinese": "碳酸钠",
+        "make": {
+            "Na": 2,
+            "C": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Na2SO3": {
+        "Chinese": "亚硫酸钠",
+        "make": {
+            "Na": 2,
+            "S": 1,
+            "O": 3
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "Na2SO4": {
+        "Chinese": "硫酸钠",
+        "make": {
+            "Na": 2,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "AgCl": {
+        "Chinese": "氯化银",
+        "make": {
+            "Ag": 1,
+            "Cl": 1
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "BaCl2": {
+        "Chinese": "氯化钡",
+        "make": {
+            "Ba": 1,
+            "Cl": 2
+        },
+        "buy": 0,
+        "DiDiscovered": true
     }
 }

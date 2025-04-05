@@ -277,5 +277,15 @@
         },
         "buy": 0,
         "DiDiscovered": true
+    },
+    "NaOH": {
+        "Chinese": "氢氧化钠",
+        "make": {
+            "Na": 1,
+            "O": 1,
+            "H": 1
+        },
+        "buy": 0,
+        "DiDiscovered": true
     }
 }
