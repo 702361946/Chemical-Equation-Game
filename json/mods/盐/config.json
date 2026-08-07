@@ -1,0 +1,14 @@
+{
+    "mod_name": "盐",
+    "version": "v0.1",
+    "author": "702361946@qq.com",
+    "open": true,
+    "description": "包含部分盐",
+    "file_all": {
+        "compound": true,
+        "condistion": false,
+        "device": false,
+        "element": false,
+        "README": true
+    }
+}

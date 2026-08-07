@@ -1,0 +1,21 @@
+{
+    "H2SO4": {
+        "Chinese": "硫酸",
+        "make": {
+            "H": 2,
+            "S": 1,
+            "O": 4
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    },
+    "HCl": {
+        "Chinese": "盐酸",
+        "make": {
+            "H": 1,
+            "Cl": 1
+        },
+        "buy": 0,
+        "DiDiscovered": true
+    }
+}

@@ -11,96 +11,167 @@ if True:
     logging.info(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 
-def shop():
+def shop() -> None:
     logging.info("shop")
-    shop_all_key = []
     shop_mode = "none"
-    while True:
-        print("商店")
-        _user_input = input("0.购买元素\n1.购买化合物\n2.购买仪器\n9.返回")
-        match _user_input:
-            case "0":
-                shop_mode = "元素"
-                for _i in element.keys():
-                    if element[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    shop_all_mode = {"none", "return", "element", "compound", "device"}
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的元素")
-                    shop_mode = "none"
-            case "1":
-                shop_mode = "化合物"
-                for _i in compound.keys():
-                    if compound[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    print("商店")
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的化合物")
-                    shop_mode = "none"
-            case "2":
-                shop_mode = "仪器"
-                for _i in device.keys():
-                    if device[_i]["buy"] is not False:
-                        shop_all_key.append(_i)
+    # 状态判断
+    def mode_if() -> bool:
+        """
+        当状态未知报错并退出
+        当状态为return时返回False
+        其他均返回True
+        :return:
+        """
+        if shop_mode not in shop_all_mode:
+            logging.error(f"Unknown shop_mode status:{shop_mode}")
+            sys_exit(f"ERROR:未知状态\\{shop_mode}")
+            return False
+        elif shop_mode == "return":
+            logging.info("return shop")
+            return False
+        else:
+            return True
 
-                if len(shop_all_key) == 0:
-                    print("没有可购买的仪器")
-                    shop_mode = "none"
-            case "9":
-                json.dump(player, "player")
-                return None
-            case _:
-                print("未知输入")
+    # 购买询问
+    def buy_input() -> tuple[str, list]:
+        input_dict = {
+            "0": {
+                "describe": "购买元素",
+                "transform": "element"
+            },
+            "1": {
+                "describe": "购买化合物",
+                "transform": "compound"
+            },
+            "2": {
+                "describe": "购买仪器",
+                "transform": "device"
+            },
+            "9": {
+                "describe": "退出商店",
+                "transform": "return"
+            },
+        }
+        _shop_all_key = []
 
-        if shop_mode != "none":
-            print(f"可购买的{shop_mode}有")
+        for __i in input_dict.keys():
+            print(f"{__i}.{input_dict[__i]['describe']}")
+
+        while True:
+            __t = input_dict.get(input("输入编号"), {"transform": None})["transform"]
+            if __t in shop_all_mode and __t in game_values.keys():
+                logging.info(f"user_input transform:{__t}")
+
+                for __i in game_values[__t]:
+                    if game_values[__t][__i]["buy"] is not False:
+                        _shop_all_key.append(__i)
+
+                if not _shop_all_key:
+                    print("此选项内无可购买内容")
+                    logging.info("shop_all_key None value")
+                else:
+                    return __t, _shop_all_key
+            elif __t == "return":
+                return __t, _shop_all_key
+            else:
+                print("无效输入")
+
+    # 购买获取
+    def buy_get(shop_all_key) -> str | None:
+        get = True
+        while_print = True
+        while True:
+            if len(shop_all_key) > 50 and get is True:
+                print(
+                    "可购买物过多\n"
+                    "请输入包含的关键字以搜索内容\n"
+                    "越准确越好\n"
+                    "输入exit可退出搜索并进行下一步"
+                )
+                keyword = input("请输入:")
+                if keyword == "exit":
+                    get = False
+                    continue
+                filtered_items = [item for item in shop_all_key if keyword in item]
+
+                if not filtered_items:
+                    print("未找到包含该关键字的物品")
+                    continue
+                elif len(filtered_items) > 50:
+                    print("搜索结果过多,请提供更为准确的关键字")
+                    continue
+                else:
+                    shop_all_key = filtered_items
+
             _t = 0
-            while _t < len(shop_all_key):
+            while _t < len(shop_all_key) and while_print is True:
                 print(f"{_t}.{shop_all_key[_t]}")
                 _t += 1
+            while_print = False
 
-            while True:
-                _user_input = input("请输入编号")
+            __t = input("请输入编号\n输入exit退出购买")
+            if __t == "exit":
+                return None
+            try:
+                __t = int(__t)
+                if 0 <= __t < len(shop_all_key):
+                    return shop_all_key[__t]
+                else:
+                    print("编号超出范围")
+            except ValueError:
+                print("请输入有效的数字编号")
+
+    # 购买(我也不知道这玩意到底会不会返回None,反正报提示了)
+    def buy() -> str | None:
+        print(f"当前单价:{game_values[shop_mode][shop_get]['buy']}")
+        while True:
+            __t = input("输入购买数量(直接敲回车等同于输入1)\n输入no取消购买\n输入exit退出购买")
+            if __t == "no":
+                return "none"
+            elif __t == "exit":
+                return "return"
+            elif __t == "":
+                __t = 1
+            else:
                 try:
-                    _user_input = int(_user_input)
-                    if _user_input in range(len(shop_all_key)):
-                        match shop_mode:
-                            case "元素":
-                                shop_buy_money = element[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "element"
-                            case "化合物":
-                                shop_buy_money = compound[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "compound"
-                            case "仪器":
-                                shop_buy_money = device[shop_all_key[_user_input]]["buy"]
-                                shop_mode = "device"
-                            case _:
-                                logging.error(f"shop_mode value error:{shop_mode}")
-                                sys_exit("请发送日志文件至702361946@qq.com")
-                        if player["money"] >= shop_buy_money:
-                            player["money"] -= shop_buy_money
-                            if shop_all_key[_user_input] not in player[shop_mode].keys():
-                                player[shop_mode][shop_all_key[_user_input]] = {
-                                    "value": 0
-                                }
-                            player[shop_mode][shop_all_key[_user_input]]["value"] += 1
-                            print(f"购买成功，剩余{player['money']}")
-                            logging.info(f"shop\\{shop_all_key[_user_input]}+1")
-                            shop_all_key = []
-                            shop_mode = "none"
-                            break
-                        else:
-                            print(f"余额不足，需要{shop_buy_money}")
-                            shop_mode = "none"
-                            continue
-
-                    else:
-                        print("请输入正确的编号")
+                    __t = int(__t)
+                    if __t <= 0:
+                        print("请输入大于0的数字")
                         continue
-
                 except ValueError:
-                    print("请输入整数")
+                    print("请输入有效的数字")
                     continue
+
+            if game_values[shop_mode][shop_get]["buy"] * __t > player["money"]:
+                print("余额不足")
+                continue
+            else:
+                player["money"] -= game_values[shop_mode][shop_get]["buy"] * __t
+                if shop_get not in player[shop_mode].keys():
+                    player[shop_mode][shop_get] = {"value": 0}
+                player[shop_mode][shop_get]["value"] += __t
+                print(f"成功购买{__t}个{shop_get}")
+                logging.info(f"buy:{shop_get}\\int:{__t}")
+                return "none"
+
+    while True:
+        shop_mode, shop_all_key = buy_input()
+        shop_all_key: list[str]
+
+        if not mode_if():
+            return None
+
+        shop_get = buy_get(shop_all_key)
+        if shop_get is None:
+            return None
+
+        shop_mode = buy()
+        if not mode_if():
+            return None
 
 
 def equation():
@@ -112,109 +183,158 @@ def equation():
         "all": {}
     }
 
-    _user_input = input("请输入化学方程式\n格式要求如下\na+b+c=d\n加号及等号间无空格\n")
-    logging.debug(f"user_input:{_user_input}")
-    _user_input = _user_input.split("=")
-    if len(_user_input) != 2:
-        print("请输入正确的化学方程式")
-        return False
+    # 从user获取其化学方程式
+    def get_ce() -> list[str] | bool:
+        _user_input = input("请输入化学方程式\n格式要求如下\na+b+c=d\n加号及等号间无空格\n")
+        logging.debug(f"user_input:{_user_input}")
+        _user_input = _user_input.split("=")
+        if len(_user_input) != 2:
+            print("请输入正确的化学方程式")
+            return False
+        return _user_input
 
-    equation_mode = "reactants"
+    # 获取元素
+    def get_e_at_c(a_b: list[str]) -> None:
+        """
+        获取方程式元素
+        :param a_b: list[a+b, c], 左反应,右产物
+        :return: 直接修改equation_all_key字典, 所以返回None
+        """
+        _mode = {"reactants", "product"}
+        # -> reactants -> product ->
+        for _m in _mode:
+            for _i in a_b:
+                for __i in _i.split("+"):
+                    num = re.match(r"^\d+", __i)
+                    key = __i[num.end():] if num is not None else __i
+                    num = int(num.group()) if num else 1
+                    equation_all_key[_m][key] = num
 
-    for _i in _user_input:
-        for __i in _i.split("+"):
-            num = re.match(r"^\d+", __i)
-            key = __i[num.end():] if num is not None else __i
-            num = int(num.group()) if num else 1
-            equation_all_key[equation_mode][key] = num
+    # 存在检查
+    def check_e_at_c() -> bool:
+        """
+        检查方程式内元素是否存在(从函数内部字典提取)
+        :return: 存在返回T,反之亦然
+        """
+        _return = True
+        _mode = {"reactants", "product"}
+        for _m in _mode:
+            for _i in equation_all_key[_m].keys():
+                if _i not in element.keys() and _i not in compound.keys():
+                    print(f'元素不存在:{_i}')
+                    logging.error(f"元素不存在:{_i}")
+                    _return = False
 
-        equation_mode = "product"
+        return _return
 
-    for _i in equation_all_key["reactants"].keys():
-        if _i not in element.keys() and _i not in compound.keys():
-            print(f'元素"{_i}"不存在\n如果真实存在请联系702361946@qq.com')
-            equation_mode = "return"
+    def check_e_at_c_value() -> bool:
+        """
+        统计方程式内元素
+        :return: 修改直接在字典
+        """
+        for _i in equation_all_key["product"].keys():
+            if _i in compound.keys():
+                for __i in compound[_i]["make"].keys():
+                    if __i not in equation_all_key["all"].keys():
+                        equation_all_key["all"][__i] = 0
+                    equation_all_key["all"][__i] += (
+                            compound[_i]["make"][__i] * equation_all_key["product"][_i]
+                    )
+            else:
+                if _i not in equation_all_key["all"].keys():
+                    equation_all_key["all"][_i] = 0
+                equation_all_key["all"][_i] += equation_all_key["product"][_i]
 
-    if equation_mode == "return":
-        return False
+        # 拷贝字典(避免同步修改)
+        equation_all_reactants = copy.deepcopy(equation_all_key["all"])
 
-    for _i in equation_all_key["product"].keys():
-        if _i in compound.keys():
-            for __i in compound[_i]["make"].keys():
-                if __i not in equation_all_key["all"].keys():
-                    equation_all_key["all"][__i] = 0
-                equation_all_key["all"][__i] += (
-                        compound[_i]["make"][__i] * equation_all_key["product"][_i]
-                )
-        else:
-            if _i not in equation_all_key["all"].keys():
-                equation_all_key["all"][_i] = 0
-            equation_all_key["all"][_i] += equation_all_key["product"][_i]
+        # 配平检查(key-value value = 0)
+        for _i in equation_all_key["reactants"].keys():
+            if _i in compound.keys():
+                for __i in compound[_i]["make"].keys():
+                    if __i not in equation_all_reactants.keys():
+                        equation_all_reactants[__i] = 0
+                    equation_all_reactants[__i] -= (
+                            compound[_i]["make"][__i] *
+                            equation_all_key["reactants"][_i]
+                    )
+            else:
+                if _i not in equation_all_reactants.keys():
+                    equation_all_reactants[_i] = 0
+                equation_all_reactants[_i] -= equation_all_key["reactants"][_i]
 
-    equation_all_reactants = copy.deepcopy(equation_all_key["all"])
+        logging.debug(f"equation_all_key\n{equation_all_key}")
 
-    for _i in equation_all_key["reactants"].keys():
-        if _i in compound.keys():
-            for __i in compound[_i]["make"].keys():
-                if __i not in equation_all_reactants.keys():
-                    equation_all_reactants[__i] = 0
-                equation_all_reactants[__i] -= (
-                    compound[_i]["make"][__i] *
-                    equation_all_key["reactants"][_i]
-                )
-        else:
-            if _i not in equation_all_reactants.keys():
-                equation_all_reactants[_i] = 0
-            equation_all_reactants[_i] -= equation_all_key["reactants"][_i]
+        _return = True
+        for _i in equation_all_reactants.keys():
+            if equation_all_reactants[_i] != 0:
+                print(f"方程式未配平\n{_i}:{equation_all_reactants[_i]}")
+                _return = False
+            elif (
+                    equation_all_key["all"][_i] >
+                    player["compound"].get(_i, {"value": 0})["value"] and
+                    equation_all_key["all"][_i] >
+                    player["element"].get(_i, {"value": 0})["value"]
+            ):
+                print(f"当前持有的化合物不足以支撑反应:{_i}")
+                _return = False
 
-    logging.debug(f"equation_all_key\n{equation_all_key}")
+        return _return
 
-    for _i in equation_all_reactants.keys():
-        if equation_all_reactants[_i] != 0:
-            print(f"方程式未配平\n{_i}:{equation_all_reactants[_i]}")
-            equation_mode = "return"
-        elif (
-                equation_all_key["all"][_i] >
-                player["compound"].get(_i, {"value": 0})["value"] and
-                equation_all_key["all"][_i] >
-                player["element"].get(_i, {"value": 0})["value"]
-        ):
-            print(f"当前持有的化合物不足以支撑反应:{_i}")
-            equation_mode = "return"
+    def user_add_del(player_dump: bool = True) -> None:
+        """
+        用于计算用户剩余库存量
+        :param player_dump: 是否保存
+        :return: None
+        """
+        for _i in equation_all_key["all"].keys():
+            if _i in compound.keys():
+                if _i not in player["compound"].keys():
+                    player["compound"][_i] = {
+                        "value": 0
+                    }
+                player["compound"][_i]["value"] -= equation_all_key["all"][_i]
+            else:
+                if _i not in player["element"].keys():
+                    player["element"][_i] = {
+                        "value": 0
+                    }
+                player["element"][_i]["value"] -= equation_all_key["all"][_i]
 
-    if equation_mode == "return":
-        return False
+        for _i in equation_all_key["product"].keys():
+            if _i in compound.keys():
+                if _i not in player["compound"].keys():
+                    player["compound"][_i] = {
+                        "value": 0
+                    }
+                player["compound"][_i]["value"] += equation_all_key["product"][_i]
+            else:
+                if _i not in player["element"].keys():
+                    player["element"][_i] = {
+                        "value": 0
+                    }
+                player["element"][_i]["value"] += equation_all_key["product"][_i]
 
-    for _i in equation_all_key["all"].keys():
-        if _i in compound.keys():
-            if _i not in player["compound"].keys():
-                player["compound"][_i] = {
-                    "value": 0
-                }
-            player["compound"][_i]["value"] -= equation_all_key["all"][_i]
-        else:
-            if _i not in player["element"].keys():
-                player["element"][_i] = {
-                    "value": 0
-                }
-            player["element"][_i]["value"] -= equation_all_key["all"][_i]
+        if player_dump:
+            json.dump(player, "player")
 
-    for _i in equation_all_key["product"].keys():
-        if _i in compound.keys():
-            if _i not in player["compound"].keys():
-                player["compound"][_i] = {
-                    "value": 0
-                }
-            player["compound"][_i]["value"] += equation_all_key["product"][_i]
-        else:
-            if _i not in player["element"].keys():
-                player["element"][_i] = {
-                    "value": 0
-                }
-            player["element"][_i]["value"] += equation_all_key["product"][_i]
 
-    json.dump(player, "player")
-    return True
+    # 主逻辑
+    if True:
+        _t = get_ce()
+        if _t is False:
+            return False
+
+        get_e_at_c(_t)
+        if not check_e_at_c():
+            return False
+
+        if not check_e_at_c_value():
+            return False
+
+        user_add_del()
+
+        return True
 
 
 def order_page():
